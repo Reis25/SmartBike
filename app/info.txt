@@ -1,0 +1,5 @@
+<home>/app
+├── CMakeLists.txt
+├── prj.conf
+└── src
+    └── main.c
