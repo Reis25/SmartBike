@@ -7,6 +7,18 @@
  *  -> valor negativo se houver
  */
 
+// construtor 
+void output_constructor(output_t *out, u32_t pin, char *port, u8_t state){
+    int e = output_open(out, port);
+    if(e == NULL){
+        printk("Alerta: Led para o PIN%d não inicializado.\n", pin);
+        return;
+    }
+    output_configure(out, pin, GPIO_DIR_OUT);
+    output_set(out, state);
+    printk("Led em PIN%d inicializado.\n", pin);
+}
+
 // Inicialização do dispositivo de saída
 int output_open(output_t *out, char *dev_label) {
     out->dev_label = dev_label;

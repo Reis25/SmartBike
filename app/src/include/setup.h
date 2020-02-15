@@ -1,9 +1,9 @@
-// Portas e Pinos dos leds
-// 0 = seta direita
-// 1 = seta esquerda
-// 2 = freio
-// 3 = farol traseiro
-// 4 = farol dianteiro
+// saída
+// 0 = seta direita (led)
+// 1 = seta esquerda (led)
+// 2 = freio (led)
+// 3 = farol traseiro (led)
+// 4 = farol dianteiro (led)
 #define led_zero_PORT LED0_GPIO_CONTROLLER
 #define led_one_PORT LED1_GPIO_CONTROLLER
 #define led_two_PORT LED2_GPIO_CONTROLLER
@@ -16,19 +16,26 @@
 #define led_three_PIN LED3_GPIO_PIN
 #define led_four_PIN LED4_GPIO_PIN
 
-// Portas e Pinos dos botões
-// 0 = seta direita
-// 1 = seta esqueda
-// 2 = freio
+// entrada
+// 0 = seta direita (botao)
+// 1 = seta esqueda (botao)
+// 2 = freio (botao)
+// 3 = ldr dianteiro
+// 4 = ldr traseiro
+// 5 = reed switch
 #define SW0_PORT SW0_GPIO_CONTROLLER
 #define SW1_PORT SW1_GPIO_CONTROLLER
 #define SW2_PORT SW2_GPIO_CONTROLLER
 #define SW3_PORT SW3_GPIO_CONTROLLER
+#define SW4_PORT SW4_GPIO_CONTROLLER
+#define SW5_PORT SW5_GPIO_CONTROLLER
 
 #define SW0_PIN SW0_GPIO_PIN
 #define SW1_PIN SW1_GPIO_PIN
 #define SW2_PIN SW2_GPIO_PIN
 #define SW3_PIN SW3_GPIO_PIN
+#define SW4_PIN SW4_GPIO_PIN
+#define SW5_PIN SW5_GPIO_PIN
 
 // Flags de interrupções do GPIO
 #define INTERRUPT GPIO_INT

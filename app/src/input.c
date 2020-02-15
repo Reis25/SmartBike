@@ -7,28 +7,18 @@
  *  -> valor negativo se houver
  */
 
-// construtor led
-void led(output_t *led, u32_t pin, char *port, u8_t state){
-    int e = output_open(led, port);
-    if(e == NULL){
-        printk("Alerta: Led para o PIN%d não inicializado.\n", pin);
-        return;
-    }
-    output_configure(led, pin, GPIO_DIR_OUT);
-    output_set(led, state);
-    printk("Led em PIN%d inicializado.\n", pin);
-}
-
-// construtor botão
-void button(input_t *button, u32_t pin, char *port){
-    int e = input_open(button, port);
+// construtor 
+void input_constructor(input_t *input, u32_t pin, char *port){
+    int e = input_open(input, port);
     if(e = NULL){
         printk("Alerta: Botao para o PIN%d não inicializado.\n", pin);
         return;
     }
-    input_configure(button, pin, GPIO_DIR_IN | SW_GPIO_FLAGS, button_pressed);
+    input_configure(input, pin, GPIO_DIR_IN | SW_GPIO_FLAGS, button_pressed);
     printk("Botao em PIN%d inicializado.\n", pin);
 }
+
+void 
 
 // Inicialização do dispositivo de entrada
 int input_open(input_t *in, char *dev_label) {

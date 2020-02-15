@@ -1,10 +1,9 @@
-#ifndef _OUTPUT_H_
-#define _OUTPUT_H_
-#endif
-
 #include <device.h>
 #include <gpio.h>
 
+#ifndef _OUTPUT_H_
+#define _OUTPUT_H_
+#endif
 
 struct output {
     struct device *device;
@@ -14,6 +13,9 @@ struct output {
 };
 
 typedef struct output output_t;
+
+// construtor do led
+void output_constructor(output_t *out, u32_t pin, char *port, u8_t state);
 
 // Essa função tem como objetivo iniciar o device do driver de saída.
 int output_open(output_t *out, char *dev_label);
@@ -29,3 +31,4 @@ int output_pressed(output_t *out);
 
 // LED: piscar
 int output_switch(output_t *out);
+
