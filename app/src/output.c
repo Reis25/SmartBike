@@ -1,16 +1,5 @@
-#include "output.h"
-#include <gpio.h>
-
 #include "setup.h"
-
-/*
- * 50 is flicker fusion threshold. Modulated light will be perceived
- * as steady by our eyes when blinking rate is at least 50.
- */
-#define PERIOD (USEC_PER_SEC / 50U)
-
-/* in micro second */
-#define FADESTEP	2000
+#include "output.h"
 
 /*
  * funções retornarão:
@@ -18,11 +7,12 @@
  *  -> valor negativo se houver
  */
 
+// Inicialização do dispositivo de saída
 int output_open(output_t *out, char *dev_label) {
     out->dev_label = dev_label;
     out->device = device_get_binding(out->dev_label);
 
-     if(out->device == NULL){
+    if(out->device == NULL){
         printk("output_open: sem erros\n");
         return 0;
     } else {
@@ -31,6 +21,7 @@ int output_open(output_t *out, char *dev_label) {
     }
 }
 
+// Configuração do dispositivo de saída
 int output_configure(output_t *out, u32_t pin, int flags) {
     out->pin = pin;
     int ret = gpio_pin_configure(out->device, out->pin, flags);
@@ -44,9 +35,11 @@ int output_configure(output_t *out, u32_t pin, int flags) {
     }
 }
 
+// Mudança de estado de um dispositivo de saída
 int output_set(output_t *out, u8_t value) {
     out->state = value;
-    int ret = gpio_pin_write(out->device, out->pin, out->state); // pros leds, se der problema, usar gpio_pin_set(out->device, out->pin, out->state)
+    // pros leds, se der problema, usar gpio_pin_set(out->device, out->pin, out->state)
+    int ret = gpio_pin_write(out->device, out->pin, out->state); 
 
     if (ret == 0) {
         printk("output_set: sem erros\n");
@@ -57,6 +50,7 @@ int output_set(output_t *out, u8_t value) {
     }    
 }
 
+// onde essa função vai ser usada?
 int output_pressed(output_t *out) {
     out->state = (out->state) ? 0 : 1;
     int ret = gpio_pin_write(out->device, out->pin, out->state);
@@ -70,7 +64,8 @@ int output_pressed(output_t *out) {
     } 
 }
 
-int led_blink(output_t *out) {
+// LED: piscar
+int output_switch(output_t *out) {
     u8_t value = (out->state) ? false : true; 
-    return output_set(out, value);
+    return output_set (out, value);
 }
