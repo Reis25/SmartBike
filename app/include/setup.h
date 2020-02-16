@@ -45,15 +45,6 @@
 #define SW5_PIN SW5_GPIO_PIN
 
 // ldr
-/* pinos analogicos
-PIN # Signal Name = NRF52832 Functions
-1 # A0 = P0.03 / AIN1
-2 # A1 = P0.04 / AIN2
-3 # A2 = P0.28 / AIN4
-4 # A3 = P0.29 / AIN5
-5 # A4 = P0.30 / AIN6
-6 # A5 = P0.31 / AIN7
-*/
 
 // reed switch
 
@@ -70,11 +61,13 @@ PIN # Signal Name = NRF52832 Functions
 #error "Choose supported PWM driver"
 #endif
 
-// PWM: microsegundos
-#define MIN_PERIOD	(USEC_PER_SEC / 64U)
- 
-// PWM: microsegundos
-#define MAX_PERIOD	USEC_PER_SEC
+#define MIN_PERIOD	(USEC_PER_SEC / 64U) // us
+#define MAX_PERIOD	USEC_PER_SEC // us
 
-// Tempo de Sleep
-#define SLEEP_TIME 500
+// outros defines
+#define ON 1
+#define OFF 0
+#define SLEEP_TIME 500 //ms
+// distancia percorrida em 1 volta do pneu
+// considerando aro 26, cujo diâmetro é de 559mm = 0,559m
+#define DIST_1VOLTA = PI * 0.559; // metros

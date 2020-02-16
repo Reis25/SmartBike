@@ -1,9 +1,8 @@
-#include <device.h>
-#include <gpio.h>
-
 #ifndef _INPUT_H_
 #define _INPUT_H_
-#endif
+
+#include <device.h>
+#include <gpio.h>
 
 struct input {
     struct device *device;
@@ -31,3 +30,4 @@ int input_read(input_t *in, u32_t *state);
 // Função para identificar qual botão foi pressionado
 void button_pressed(struct device *btn, struct gpio_callback *cb, u32_t pins);
 
+#endif

@@ -78,6 +78,6 @@ int output_pressed(output_t *out) {
 
 // LED: piscar
 int output_switch(output_t *out) {
-    u8_t value = (out->state) ? false : true; 
+    u8_t value = (out->state) ? 0 : 1; 
     return output_set (out, value);
 }
