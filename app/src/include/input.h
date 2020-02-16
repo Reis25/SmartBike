@@ -19,9 +19,6 @@ typedef struct input input_t;
 // construtor do botão
 void input_constructor(input_t *input, u32_t pin, char *port);
 
-// construtor do ldr
-void ldr(output_t *led, u32_t pin, char *port, u8_t state);
-
 // Essa função tem como objetivo iniciar o device do driver de entrada.
 int input_open(input_t *in, char *dev_label);
 

@@ -25,11 +25,11 @@ int output_open(output_t *out, char *dev_label) {
     out->device = device_get_binding(out->dev_label);
 
     if(out->device == NULL){
-        printk("output_open: sem erros\n");
-        return 0;
-    } else {
         printk("output_open: ERRO na atribução do out->device\n");
         return -1;
+    } else {
+        printk("output_open: sem erros\n");
+        return 0;
     }
 }
 

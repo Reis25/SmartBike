@@ -1,3 +1,10 @@
+// Flags de interrupções do GPIO
+#define INTERRUPT GPIO_INT
+#define FALLING_EDGE (GPIO_INT_EDGE | GPIO_INT_ACTIVE_LOW)
+#define DEBOUNCE GPIO_INT_DEBOUNCE
+#define PULL_UP GPIO_PUD_PULL_UP
+#define SW_GPIO_FLAGS (INTERRUPT | FALLING_EDGE | DEBOUNCE | PULL_UP)
+
 // saída
 // 0 = seta direita (led)
 // 1 = seta esquerda (led)
@@ -37,14 +44,18 @@
 #define SW4_PIN SW4_GPIO_PIN
 #define SW5_PIN SW5_GPIO_PIN
 
-// Flags de interrupções do GPIO
-#define INTERRUPT GPIO_INT
-#define FALLING_EDGE (GPIO_INT_EDGE | GPIO_INT_ACTIVE_LOW)
-#define DEBOUNCE GPIO_INT_DEBOUNCE
-#define PULL_UP GPIO_PUD_PULL_UP
-#define SW_GPIO_FLAGS (INTERRUPT | FALLING_EDGE | DEBOUNCE | PULL_UP)
+// ldr
+/* pinos analogicos
+PIN # Signal Name = NRF52832 Functions
+1 # A0 = P0.03 / AIN1
+2 # A1 = P0.04 / AIN2
+3 # A2 = P0.28 / AIN4
+4 # A3 = P0.29 / AIN5
+5 # A4 = P0.30 / AIN6
+6 # A5 = P0.31 / AIN7
+*/
 
-// Leitura do sinal do sensor
+// reed switch
 
 // PWM
 #if defined(DT_ALIAS_PWM_LED0_PWMS_CONTROLLER) && defined(DT_ALIAS_PWM_LED0_PWMS_CHANNEL)

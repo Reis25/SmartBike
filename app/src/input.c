@@ -26,11 +26,11 @@ int input_open(input_t *in, char *dev_label) {
     in->device = device_get_binding(in->dev_label);
 
     if(in->device == NULL){
-        printk("input_open: sem erros\n");
-        return 0;
-    } else {
         printk("input_open: ERRO na atribução do in->device\n");
         return -1;
+    } else {
+        printk("input_open: sem erros\n");
+        return 0;
     }
 }
 // Configuração do dispositivo de entrada
