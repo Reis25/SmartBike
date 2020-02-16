@@ -2,15 +2,15 @@
 #include "initial_settings.h"
 
 // aux setas
-bool piscarDireita, piscarEsquerda = false;
-s64_t tempoAnt = 0;
 int cont = 0;
+s64_t tempoAnt = 0;
+bool piscarDireita, piscarEsquerda = false;
 // aux reed
-int estadoReed = 0;
-int estadoAnteriorReed = 0;
 int voltas = 0;
-long tempoInicial = 0;
-float tempoGasto = 0;
+int estadoReed = 0;
+s64_t tempoGasto = 0;
+s64_t tempoInicial = 0;
+int estadoAnteriorReed = 0;
 
 void piscar_seta(output_t *out)
 {
@@ -37,7 +37,7 @@ void piscar_seta(output_t *out)
 
 void reedSwitch()
 {
-    input_read(reed_switch, estadoReed);
+    input_read(&reed_switch, estadoReed);
     
     if (estadoReed > 0) 
     {
