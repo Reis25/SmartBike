@@ -16,7 +16,7 @@ int botao_pressionado = -1;
 typedef struct input input_t;
 
 // construtor do botão
-void input_constructor(input_t *input, u32_t pin, char *port);
+void input_constructor(input_t *input, u32_t pin, char *label);
 
 // Essa função tem como objetivo iniciar o device do driver de entrada.
 int input_open(input_t *in, char *dev_label);

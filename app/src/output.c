@@ -8,8 +8,8 @@
  */
 
 // construtor 
-void output_constructor(output_t *out, u32_t pin, char *port, u8_t state){
-    int e = output_open(out, port);
+void output_constructor(output_t *out, u32_t pin, char *label, u8_t state){
+    int e = output_open(out, label);
     if(e == NULL){
         printk("Alerta: Led para o PIN%d não inicializado.\n", pin);
         return;

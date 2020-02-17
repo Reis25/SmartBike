@@ -6,6 +6,10 @@
 struct device *dev;
 struct sensor_value lum;
 
+// ajustar essa range
+int ldr_min = 0;
+int ldr_max = 1023;
+
 // função que inicializa o LDR
 void configure_ldr();
 

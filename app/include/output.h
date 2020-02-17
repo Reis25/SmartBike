@@ -14,7 +14,7 @@ struct output {
 typedef struct output output_t;
 
 // construtor do dispositivo de saída
-void output_constructor(output_t *out, u32_t pin, char *port, u8_t state);
+void output_constructor(output_t *out, u32_t pin, char *label, u8_t state);
 
 // Essa função tem como objetivo iniciar o dispositivo de saída
 int output_open(output_t *out, char *dev_label);

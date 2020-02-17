@@ -8,8 +8,8 @@
  */
 
 // construtor 
-void input_constructor(input_t *input, u32_t pin, char *port){
-    int e = input_open(input, port);
+void input_constructor(input_t *input, u32_t pin, char *label){
+    int e = input_open(input, label);
     if(e = NULL){
         printk("Alerta: Botao para o PIN%d não inicializado.\n", pin);
         return;
